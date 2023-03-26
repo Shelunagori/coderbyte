@@ -9,3 +9,13 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+1. Changed function name from deterministicPartitionKey to exports.getPartitionKey.
+
+2. Used optional chaining (?.) and nullish coalescing (??) operators to handle undefined or null values in the candidate variable assignment
+
+3. Simplified the if statement that checks for the existence of event and event.partitionKey
+
+4. Changed the if statement that checks the type of candidate to return TRIVIAL_PARTITION_KEY if candidate is not a string
+
+5. Simplified the final return statement by using a conditional operator to check if the candidate length exceeds the MAX_PARTITION_KEY_LENGTH, and returning the result of either hashing candidate or just candidate itself
