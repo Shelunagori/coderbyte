@@ -1,6 +1,9 @@
 const crypto = require("crypto");
 
 exports.getPartitionKey = (event) => {
+  if (!event || !event.partitionKey) {
+    return "0";
+  }
   const TRIVIAL_PARTITION_KEY = "0";
   const MAX_PARTITION_KEY_LENGTH = 256;
 
